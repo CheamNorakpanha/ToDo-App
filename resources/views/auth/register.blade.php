@@ -32,14 +32,24 @@
 
 @section('content')
     <main class="form-signin w-100 m-auto">
-        <form method="POST" action="{{ route('login.post') }}">
+        <form method="POST" action="{{ route('register.post') }}">
             @csrf
-            <img class="mb-4 mx-auto d-block" src={{ asset('assets/img/hi-otag.gif') }} alt="" width="90"
-                height="64">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <img class="mb-4 mx-auto d-block" src={{ asset('assets/img/silly-cat-silly.gif') }} alt="" width="100"
+                height="100">
+            <h1 class="h3 mb-3 fw-normal">Create your account</h1>
 
             <div class="form-floating">
-                <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input name="fullname" type="text" class="form-control rounded-0 rounded-top" id="floatingInput"
+                    placeholder="Enter your full name">
+                <label for="floatingInput">Full Name</label>
+                @error('fullname')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-floating">
+                <input name="email" type="email" class="form-control rounded-0" id="floatingInput"
+                    placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
@@ -52,11 +62,6 @@
                 @error('password')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
-            </div>
-
-            <div class="form-check text-start my-3">
-                <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault">
-                <label class="form-check-label" for="checkDefault">Remember me</label>
             </div>
 
             @if (session()->has('success'))
@@ -72,9 +77,9 @@
             @endif
 
 
-            <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+            <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
 
-            <p class="mt-5 mb-3 text-body-secondary text-center">&copy; 2017-2025</p>
+            <p class="mt-5 mb-3 text-body-secondary text-center">&copy; 2025</p>
         </form>
     </main>
 @endsection
