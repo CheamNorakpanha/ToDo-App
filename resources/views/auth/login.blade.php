@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.auth')
 
 @section('style')
     <style>
@@ -70,7 +70,6 @@
                     {{ session('error') }}
                 </div>
             @endif
-
 
             <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
 
